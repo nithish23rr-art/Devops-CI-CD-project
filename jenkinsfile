@@ -9,20 +9,19 @@
         }
 
         stage('Build') {
-            steps {
-                echo 'Building the Python project...'
-            sh 'python3 -m venv venv'
-            sh 'source./venv/bin/activate && pip install -r requirements.txt'
-            }
-        }
+    steps {
+        echo 'Building the Python project...'
+        sh 'python3 -m venv venv'
+        sh 'source ./venv/bin/activate && pip install -r requirements.txt'
+    }
+}
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            sh 'source./venv/bin/pip install pytest'
-            sh 'source./venv/bin/pytest'
-            }
-        }
+       stage('Test') {
+    steps {
+        echo 'Running tests...'
+        sh 'source ./venv/bin/activate && pip install pytest && pytest'
+    }
+}
 
         stage('Deploy') {
             steps {
