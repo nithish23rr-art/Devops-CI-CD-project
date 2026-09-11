@@ -1,1 +1,87 @@
-
+ pipeline{
+     agent{
+         label "node"
+     }
+     stages{
+         stage("checkout"){
+             steps{
+                git branch: 'main', url: 'https://github.com/nithish23rr-art/Devops-CI-CD-project.git'
+                 
+             }
+             post{
+                 always{
+                     echo "========always========"
+                 }
+                 success{
+                     echo "========A executed successfully========"
+                 }
+                 failure{
+                     echo "========A execution failed========"
+                 }
+             }
+             stage("build"){
+                 steps{
+                    echo "building the python  project"
+                    sh "python3 -m venv venv"
+                    sh "source venv/bin/activate && pip install -r requirements.txt"
+                     }
+                 post{
+                     always{
+                         echo "========always========"
+                     }
+                     success{
+                         echo "========B executed successfully========"
+                     }
+                     failure{
+                         echo "========B execution failed========"
+                     }
+                 }
+             }
+             stage("test"){
+                 steps{
+                     echo "testing the python project"
+                     sh "source venv/bin/activate && pytest"
+                 }
+                 post{
+                     always{
+                         echo "========always========"
+                     }
+                     success{
+                         echo "========C executed successfully========"
+                     }
+                     failure{
+                         echo "========C execution failed========"
+                     }
+                 }
+             }
+                stage("deploy"){
+                    steps{
+                        echo "deploying the python project"
+                        sh "./deploy.sh"
+                    }
+                    post{
+                        always{
+                            echo "========always========"
+                        }
+                        success{
+                            echo "========D executed successfully========"
+                        }
+                        failure{
+                            echo "========D execution failed========"
+                        }
+                    }
+                }
+         }
+     }
+     post{
+         always{
+             echo "========always========"
+         }
+         success{
+             echo "========pipeline executed successfully ========"
+         }
+         failure{
+             echo "========pipeline execution failed========"
+         }
+     }
+ }
