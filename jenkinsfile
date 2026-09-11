@@ -12,7 +12,6 @@
             steps {
                 echo 'Building the Python project...'
             sh 'python3 -m venv venv'
-            sh ' pip3 install  flask-sqlalchemy --break-system-packages'
             sh './venv/bin/pip install -r requirements.txt
             }
         }
