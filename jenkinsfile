@@ -3,39 +3,19 @@
          label "node"
      }
      stages{
-         stage("checkout"){
+         stage('checkout'){
              steps{
                 git branch: 'main', url: 'https://github.com/nithish23rr-art/Devops-CI-CD-project.git'
                  
              }
-             post{
-                 always{
-                     echo "========always========"
-                 }
-                 success{
-                     echo "========A executed successfully========"
-                 }
-                 failure{
-                     echo "========A execution failed========"
-                 }
-             }
+             
              stage("build"){
                  steps{
                     echo "building the python  project"
                     sh "python3 -m venv venv"
                     sh "source venv/bin/activate && pip install -r requirements.txt"
                      }
-                 post{
-                     always{
-                         echo "========always========"
-                     }
-                     success{
-                         echo "========B executed successfully========"
-                     }
-                     failure{
-                         echo "========B execution failed========"
-                     }
-                 }
+                
              }
              stage("test"){
                  steps{
