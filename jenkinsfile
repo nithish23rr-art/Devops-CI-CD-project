@@ -1,67 +1,33 @@
- pipeline{
-     agent{
-         label "node"
-     }
-     stages{
-         stage('checkout'){
-             steps{
+ pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
                 git branch: 'main', url: 'https://github.com/nithish23rr-art/Devops-CI-CD-project.git'
-                 
-             }
-             
-             stage("build"){
-                 steps{
-                    echo "building the python  project"
-                    sh "python3 -m venv venv"
-                    sh "source venv/bin/activate && pip install -r requirements.txt"
-                     }
-                
-             }
-             stage("test"){
-                 steps{
-                     echo "testing the python project"
-                     sh "source venv/bin/activate && pytest"
-                 }
-                 post{
-                     always{
-                         echo "========always========"
-                     }
-                     success{
-                         echo "========C executed successfully========"
-                     }
-                     failure{
-                         echo "========C execution failed========"
-                     }
-                 }
-             }
-                stage("deploy"){
-                    steps{
-                        echo "deploying the python project"
-                        sh "./deploy.sh"
-                    }
-                    post{
-                        always{
-                            echo "========always========"
-                        }
-                        success{
-                            echo "========D executed successfully========"
-                        }
-                        failure{
-                            echo "========D execution failed========"
-                        }
-                    }
-                }
-         }
-     }
-     post{
-         always{
-             echo "========always========"
-         }
-         success{
-             echo "========pipeline executed successfully ========"
-         }
-         failure{
-             echo "========pipeline execution failed========"
-         }
-     }
- }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the Python project...'
+                sh 'python -m venv venv'
+                sh '. venv/bin/activate && pip install -r requirements.txt'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh '. venv/bin/activate && pytest'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'        
+                sh './deploy.sh'
+            }
+        }
+    }
+}
