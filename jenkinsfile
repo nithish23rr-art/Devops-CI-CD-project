@@ -12,7 +12,7 @@
             steps {
                 echo 'Building the Python project...'
                 sh 'python3 -m venv venv'
-                sh 'pip install flask'
+                sh './venv/bin/pip install flask'
                 //sh './venv/bin/pip install -r requirements.txt'
             }
         }
