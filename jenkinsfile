@@ -19,7 +19,7 @@
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh '. venv/bin/activate && pip inatall pytest'
+                sh '. venv/bin/activate && pip install pytest'
             }
         }
 
