@@ -28,14 +28,14 @@ To run this project locally, follow these steps:
 - Jenkins configured with necessary plugins for Git and Python
 
 # Installation
-- 1.Clone the repository:
+- 1. Clone the repository:
  - ''' git clone https://github.com/nithish23rr-art/Devops-CI-CD-project.git '''
-- 2.Navigate to the project directory:
+- 2. Navigate to the project directory:
  - ''' cd Devops-CI-CD-project '''
-- 3.Install dependencies:
+- 3. Install dependencies:
 - ''' ./venv/bin/pip install Flask '''
 - ''' ./venv/bin/pip install -r requirements.txt '''
-- 4.Set up the database and run the application:
+- 4. Set up the database and run the application:
  - ''' nohup python3 web_application.py > app.log 2>&1 & '''
 # Usage
  1. Access the application at
