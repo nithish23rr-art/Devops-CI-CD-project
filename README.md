@@ -30,15 +30,15 @@ To run this project locally, follow these steps:
 # Installation
  1. Clone the repository:
  - ''' git clone https://github.com/nithish23rr-art/Devops-CI-CD-project.git '''
-- 2.Navigate to the project directory:
+ 2.Navigate to the project directory:
  - ''' cd Devops-CI-CD-project '''
 3.Install dependencies:
-''' ./venv/bin/pip install Flask '''
-''' ./venv/bin/pip install -r requirements.txt '''
+- ''' ./venv/bin/pip install Flask '''
+- ''' ./venv/bin/pip install -r requirements.txt '''
 4.Set up the database and run the application:
- ''' nohup python3 web_application.py > app.log 2>&1 & '''
+ - ''' nohup python3 web_application.py > app.log 2>&1 & '''
 Usage
-·Access the application at
-''' http://172.21.162.50:5000/register '''
+ 1. Access the application at
+- ''' http://172.21.162.50:5000/register '''
      Use the Register page to create a new account.
-·Log in to your account with the created credentials
+2. Log in to your account with the created credentials
