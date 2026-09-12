@@ -4,7 +4,7 @@
 This project is a robust web application designed to demonstrate the seamless integration of development and operations. Built using Python (Flask), it provides a secure environment for user registration and authentication. The core of this project lies in its automated CI/CD pipeline, orchestrated by Jenkins, ensuring efficient and continuous delivery to the cloud.
 
 # Key Features
-·User Authentication: Secure registration and login functionalities using Flask-SQLAlchemy for database management and werkzeug for password hashing.
+-·User Authentication: Secure registration and login functionalities using Flask-SQLAlchemy for database management and werkzeug for password hashing.
 ·Automated Deployment: A fully functional CI/CD pipeline built with Jenkins that automates the build and deployment process.
 ·Responsive Frontend: Clean and intuitive user interface designed with HTML/CSS.
 ·Cloud Ready: Optimized for cloud instances, providing accessible deployment on designated ports.
