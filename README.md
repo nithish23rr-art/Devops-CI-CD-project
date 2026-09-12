@@ -28,7 +28,7 @@ To run this project locally, follow these steps:
 - Jenkins configured with necessary plugins for Git and Python
 
 # Installation
--1.Clone the repository:
+- 1.Clone the repository:
  - ''' git clone https://github.com/nithish23rr-art/Devops-CI-CD-project.git '''
 - 2.Navigate to the project directory:
  - ''' cd Devops-CI-CD-project '''
