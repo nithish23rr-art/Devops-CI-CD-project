@@ -1,4 +1,5 @@
 Devops-CI-CD-project
+
 About the Project
 This project is a robust web application designed to demonstrate the seamless integration of development and operations. Built using Python (Flask), it provides a secure environment for user registration and authentication. The core of this project lies in its automated CI/CD pipeline, orchestrated by Jenkins, ensuring efficient and continuous delivery to the cloud.
 Key Features
