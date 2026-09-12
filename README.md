@@ -37,7 +37,7 @@ To run this project locally, follow these steps:
 - ''' ./venv/bin/pip install -r requirements.txt '''
 - 4.Set up the database and run the application:
  - ''' nohup python3 web_application.py > app.log 2>&1 & '''
-Usage
+# Usage
  1. Access the application at
 - ''' http://172.21.162.50:5000/register '''
      Use the Register page to create a new account.
