@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 12px 0;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .switch-btn {
+            background: none;
+            border: none;
+            color: #007BFF;
+            cursor: pointer;
+            padding: 0;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Login Form -->
+    <div id="login-form" class="form-section active">
+        <h2>Login Page</h2>
+        <form method="POST">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p style="margin-top: 15px;">Don't have an account? <button class="switch-btn" onclick="toggleForms()">Register here</button></p>
+    </div>
+
+    <!-- Register Form -->
+    <div id="register-form" class="form-section">
+        <h2>Register Page</h2>
+        <form method="POST">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br>
+            <button type="submit">Register</button>
+        </form>
+        <p style="margin-top: 15px;">Already have an account? <button class="switch-btn" onclick="toggleForms()">Login here</button></p>
+    </div>
+</div>
+
+<script>
+    function toggleForms() {
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        loginForm.classList.toggle('active');
+        registerForm.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
