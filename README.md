@@ -30,9 +30,9 @@ To run this project locally, follow these steps:
 # Installation
  1. Clone the repository:
  - ''' git clone https://github.com/nithish23rr-art/Devops-CI-CD-project.git '''
- 2.Navigate to the project directory:
+-- 2.Navigate to the project directory:
  - ''' cd Devops-CI-CD-project '''
-3.Install dependencies:
+-- 3.Install dependencies:
 - ''' ./venv/bin/pip install Flask '''
 - ''' ./venv/bin/pip install -r requirements.txt '''
 4.Set up the database and run the application:
