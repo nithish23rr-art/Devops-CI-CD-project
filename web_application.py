@@ -20,7 +20,7 @@ def login():
         if user and check_password_hash(user.password, password):
             return f"User {username} logged in!"
         return "Invalid credentials"
-    return render_template('login_register1.html')
+    return render_template('login.html')
 
 
 with app.app_context():
@@ -35,7 +35,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         return 'User registered successfully!'
-    return render_template('login_register1.html')
+    return render_template('register.html')
 
 
 if __name__ == '__main__':
