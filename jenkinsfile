@@ -11,7 +11,7 @@ pipeline {
         stage('Test image') {
             steps {
                 echo 'Testing image...'
-                sh 'docker run --rm my-python-app python -m unittest discover tests'
+                sh 'docker run --rm my-python-app python -m unittest test_app.py'
             }
         }
         stage('Deploy image') {
