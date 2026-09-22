@@ -11,11 +11,9 @@ pipeline {
         stage('Test image') {
             steps {
                 echo 'Testing image...'
-                script {
-                    docker.image('my-python-app').inside {
-                        sh 'python -m unittest discover tests'
-                    }
-                }
+                sh 'docker run --rm my-python-app python -m unittest discover tests'
+            
+
             }
         }
         stage('Deploy image') {
@@ -27,14 +25,11 @@ pipeline {
     }
 
     post {
-        always {
-            echo 'This will always run after the pipeline completes.'
-        }
         success {
-            echo 'This will run only if the pipeline succeeds.'
+            echo 'pipeline completed successfully! App is running on port 5000.'
         }
         failure {
-            echo 'This will run only if the pipeline fails.'
+            echo 'pipeline failed. please check the logs.'
         }
     }
 }
