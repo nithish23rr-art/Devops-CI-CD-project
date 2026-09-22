@@ -5,7 +5,7 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'docker build -t my-python-app .'
-                sh 'docker build -t my-python-app .'
+                sh 'sudo docker build -t my-python-app .'
             }
         }
         stage('Test image') {
