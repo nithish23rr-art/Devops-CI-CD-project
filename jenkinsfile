@@ -11,8 +11,11 @@ pipeline {
         stage('Test image') {
             steps {
                 echo 'Testing image...'
-                docker.image('my-python-app').inside {
-                    sh 'python -m unittest discover tests'
+                script {
+                    docker.image('my-python-app').inside {
+                        sh 'python -m unittest discover tests'
+                    }
+                }
             }
         }
         stage('Deploy image') {
