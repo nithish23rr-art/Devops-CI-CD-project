@@ -1,61 +1,36 @@
 pipeline {
     agent any
 
-    environment {
-        VENV_DIR = "${WORKSPACE}/venv"
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/nithish23rr-art/Devops-CI-CD-project.git'
+                checkout scm
             }
         }
 
-        stage('Build') {
+        stage('Install & Test') {
             steps {
-                echo 'Building the Python project...'
                 sh '''
-                    python3 -m venv ${VENV_DIR}
-                    . ${VENV_DIR}/bin/activate
-                    pip install --upgrade pip
                     pip install -r requirements.txt
+                    python -m pytest test_app.py
                 '''
             }
         }
 
-        stage('Test') {
+        stage('Build Image') {
             steps {
-                echo 'Running tests...'
-                sh '''
-                    . ${VENV_DIR}/bin/activate
-                    pytest --tb=short
-                '''
+                sh 'docker build -t flask-web-app .'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying the application...'
                 sh '''
-                    chmod +x ./deploy.sh
-                    . ${VENV_DIR}/bin/activate
-                    ./deploy.sh
+                    docker stop flask-app || true
+                    docker rm flask-app || true
+                    docker run -d --name flask-app -p 5000:5000 flask-web-app
                 '''
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline executed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed! Check the logs above.'
-        }
-        always {
-            echo 'Cleaning up workspace...'
-            cleanWs()
         }
     }
 }
