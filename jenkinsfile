@@ -13,7 +13,10 @@ pipeline {
                 echo 'Testing image...'
                 sh 'docker run --rm my-python-app python -m unittest discover tests'
             
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2bff315 (added jenkinsfile)
             }
         }
         stage('Deploy image') {
